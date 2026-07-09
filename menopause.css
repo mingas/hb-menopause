@@ -177,7 +177,9 @@
   #hbmp-tool .st .sttag{font-family:var(--mono);font-size:11px;color:var(--ink-45);letter-spacing:.03em;margin-bottom:9px}
   #hbmp-tool .st p{margin:0;font-size:13.5px;color:var(--ink-70)}
 
-  #hbmp-tool table{width:100%;border-collapse:collapse;font-size:14px;margin-top:22px}
+  #hbmp-tool .tbl-wrap{margin-top:22px;border:1px solid var(--line);border-radius:14px;
+    overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;background:var(--card)}
+  #hbmp-tool table{width:100%;border-collapse:collapse;font-size:14px}
   #hbmp-tool thead th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-45);text-align:left;padding:0 15px 11px;font-weight:500;border-bottom:1px solid var(--ink-12)}
   #hbmp-tool tbody td{padding:14px 15px;border-bottom:1px solid var(--line);vertical-align:top}
   #hbmp-tool tbody tr:last-child td{border-bottom:0}
@@ -229,6 +231,7 @@
     #hbmp-tool .qlead{font-size:1.35rem}
     #hbmp-tool .agenum{font-size:3.2rem}
     #hbmp-tool .jlabels span{font-size:9.5px}
+    #hbmp-tool .tbl-wrap tbody td:first-child{white-space:normal}
   }
 
 /* container + fixed navbar clearance */
@@ -260,4 +263,5 @@
 #ranges-email input.w-button:hover{filter:brightness(1.05);transform:translateY(-1px)}
 #ranges-email .w-form-done,#ranges-email .w-form-fail{margin-top:14px;padding:12px 16px;border-radius:10px;font-size:14px}
 @media(max-width:600px){#ranges-email{padding:40px 16px !important}#ranges-email form{flex-direction:column}
-  #ranges-email input.w-button{width:100%}#ranges-email h1,#ranges-email h2,#ranges-email h3{font-size:1.32rem !important}}
+  #ranges-email input.w-button{width:100%}#ranges-email h1,#ranges-email h2,#ranges-email h3{font-size:1.32rem !important}
+  #ranges-email input.w-input,#ranges-email input[type=email],#ranges-email input[type=text]{flex:0 0 auto !important;width:100%}}
