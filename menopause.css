@@ -231,7 +231,20 @@
     #hbmp-tool .qlead{font-size:1.35rem}
     #hbmp-tool .agenum{font-size:3.2rem}
     #hbmp-tool .jlabels span{font-size:9.5px}
-    #hbmp-tool .tbl-wrap tbody td:first-child{white-space:normal}
+    /* lentele -> korteles: nulis horizontalios slinkties, nulis prarasto turinio */
+    #hbmp-tool .tbl-wrap{border:0;background:transparent;overflow-x:visible;margin-top:18px}
+    #hbmp-tool .tbl-wrap thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+    #hbmp-tool .tbl-wrap table,#hbmp-tool .tbl-wrap tbody,#hbmp-tool .tbl-wrap tr,#hbmp-tool .tbl-wrap td{display:block;width:auto}
+    #hbmp-tool .tbl-wrap tr{border:1px solid var(--line);border-radius:14px;background:var(--card);
+      padding:16px 18px;margin-bottom:12px}
+    #hbmp-tool .tbl-wrap tr:last-child{margin-bottom:0}
+    #hbmp-tool .tbl-wrap td{border:0;padding:6px 0}
+    #hbmp-tool .tbl-wrap td:before{content:attr(data-l);display:block;font-size:10px;letter-spacing:.09em;
+      text-transform:uppercase;color:var(--ink-45);margin-bottom:3px;font-family:var(--sans)}
+    #hbmp-tool .tbl-wrap tbody td:first-child{white-space:normal;font-size:17px;padding-top:0}
+    #hbmp-tool .tbl-wrap td.num{white-space:normal}
+    #hbmp-tool .tbl-wrap td:last-child{padding-bottom:0}
+    #hbmp-tool .tbl-wrap td.dash{display:none}
   }
 
 /* container + fixed navbar clearance */

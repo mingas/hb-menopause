@@ -132,11 +132,11 @@
       <table>
         <thead><tr><th>Life stage</th><th>Oestradiol (E2)</th><th>FSH</th><th>What's happening</th></tr></thead>
         <tbody>
-          <tr><td>Reproductive years</td><td class="num">30–400 pg/mL*</td><td class="num">&lt; 10 IU/L</td><td>Cyclical rise and fall each month; *varies enormously by cycle day.</td></tr>
-          <tr><td>Perimenopause</td><td class="num">highly variable</td><td class="num">variable, rising</td><td>Erratic swings — no reliable "normal". A single value means little.</td></tr>
-          <tr><td>Postmenopause</td><td class="num">&lt; 10–20 pg/mL</td><td class="num">&gt; 25–30 IU/L</td><td>Ovarian oestrogen production has ceased; FSH stays high.</td></tr>
-          <tr><td>Progesterone</td><td class="num">falls first</td><td class="num">—</td><td>Often the earliest change: cycles without ovulation produce little progesterone, even while oestrogen still swings.</td></tr>
-          <tr><td>Testosterone</td><td class="num">gradual decline</td><td class="num">—</td><td>Falls slowly with age rather than at menopause; may even rise slightly afterwards.<sup class="cit"><a href="#sources">3</a></sup></td></tr>
+          <tr><td data-l="Life stage">Reproductive years</td><td class="num" data-l="Oestradiol (E2)">30–400 pg/mL*</td><td class="num" data-l="FSH">&lt; 10 IU/L</td><td data-l="What’s happening">Cyclical rise and fall each month; *varies enormously by cycle day.</td></tr>
+          <tr><td data-l="Life stage">Perimenopause</td><td class="num" data-l="Oestradiol (E2)">highly variable</td><td class="num" data-l="FSH">variable, rising</td><td data-l="What’s happening">Erratic swings — no reliable "normal". A single value means little.</td></tr>
+          <tr><td data-l="Life stage">Postmenopause</td><td class="num" data-l="Oestradiol (E2)">&lt; 10–20 pg/mL</td><td class="num" data-l="FSH">&gt; 25–30 IU/L</td><td data-l="What’s happening">Ovarian oestrogen production has ceased; FSH stays high.</td></tr>
+          <tr><td data-l="Hormone">Progesterone</td><td class="num" data-l="Pattern">falls first</td><td class="num dash" data-l="FSH">—</td><td data-l="What’s happening">Often the earliest change: cycles without ovulation produce little progesterone, even while oestrogen still swings.</td></tr>
+          <tr><td data-l="Hormone">Testosterone</td><td class="num" data-l="Pattern">gradual decline</td><td class="num dash" data-l="FSH">—</td><td data-l="What’s happening">Falls slowly with age rather than at menopause; may even rise slightly afterwards.<sup class="cit"><a href="#sources">3</a></sup></td></tr>
         </tbody>
       </table>
       </div>
