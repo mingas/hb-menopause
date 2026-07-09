@@ -252,7 +252,7 @@
       return R({key:'hrt',tl:-1,stage:'On HRT \u2014 read by symptoms',sub:'Menopause hormone therapy changes your bleeding pattern, so cycle-based staging doesn\u2019t apply. What matters now is how well your symptoms are controlled.',
         mean:'Because you\u2019re taking HRT, the usual cycle milestones can\u2019t place you on the map \u2014 and that\u2019s expected. The goal of therapy is symptom control, guided by how you feel rather than by a test. Your snapshot below shows where things stand.',
         time:'On HRT, what matters is symptom control over time \u2014 not where you sit on the map. Most women review their dose with a clinician within the first <b>3\u20136 months</b>, then annually.',
-        steps:[['Review with your prescriber','Use your symptom score to discuss whether your type or dose of HRT is giving enough relief.'],['Track your symptoms','Log how you feel week to week \u2014 our <a href="/hormone-quiz">daily tracker</a> makes patterns visible.'],['Read the deeper guide','The full method is in <em>The Hormone Blueprint</em>.','/book']]});
+        steps:[['Review with your prescriber','Use your symptom score to discuss whether your type or dose of HRT is giving enough relief.'],['Track your symptoms','Log how you feel week to week \u2014 our <a href="/hormone-quiz">daily tracker</a> makes patterns visible.'],['Read the deeper guide','The full method is in <em>The Hormone Blueprint</em>.','/hormone-blueprint']]});
     }
     if(a.horm==='contra'){
       if(a.age&&a.age<40&&vaso) flags.push(['Worth checking early','Menopausal symptoms under 40 deserve a medical review to rule out early menopause and other causes.']);
@@ -275,27 +275,27 @@
       return R({key:'post',tl:3,stage:'Postmenopause',sub:'Twelve or more months without a period means you\u2019ve reached menopause. Your body has settled into a new, lower-hormone baseline.',
         mean:'You\u2019ve passed the menopause milestone. Oestrogen now stays consistently low. Many symptoms ease over the first few years, but low oestrogen has longer-term effects on <b>bone and heart health</b> worth protecting.',
         time:'You reached menopause when you passed <b>12 months</b> without a period. Symptoms often ease over the following <b>2\u20135 years</b>, though some \u2014 dryness in particular \u2014 can persist without treatment.',
-        steps:[['Protect bone & heart','Ask about bone health, blood pressure and cholesterol \u2014 low oestrogen raises these risks.'],['Treat lingering symptoms','Hot flushes, dryness or sleep issues can still be treated \u2014 you don\u2019t have to just live with them.'],['Explore your options','<em>The Hormone Blueprint</em> covers postmenopausal wellbeing and HRT.','/book']]});
+        steps:[['Protect bone & heart','Ask about bone health, blood pressure and cholesterol \u2014 low oestrogen raises these risks.'],['Treat lingering symptoms','Hot flushes, dryness or sleep issues can still be treated \u2014 you don\u2019t have to just live with them.'],['Explore your options','<em>The Hormone Blueprint</em> covers postmenopausal wellbeing and HRT.','/hormone-blueprint']]});
     }
     if(a.last==='3to11' || a.cycle==='skip60'){
       if(a.age&&a.age<40) flags.push(['See a doctor \u2014 under 40','Skipping periods and menopausal symptoms before 40 needs assessment to rule out premature ovarian insufficiency.']);
       return R({key:'late',tl:2,stage:'Late perimenopause',sub:'Skipping periods with gaps of two months or more places you in the late transition \u2014 usually the peak of symptoms.',
         mean:'Your cycle now has long gaps (60+ days), marking <b>late perimenopause</b> \u2014 the home straight before menopause. Symptoms such as hot flushes often peak here; periods become less frequent until they stop for good.',
         time:'Late perimenopause usually lasts <b>1\u20133 years</b>. Once you pass <b>12 months</b> with no period, you\u2019ve reached menopause \u2014 on average around age <b>51</b>.',
-        steps:[['Name it, then treat it','This stage is the most responsive to symptom relief \u2014 lifestyle, non-hormonal options or HRT.'],['Keep tracking your cycle','Note each period; reaching 12 months from your last one confirms menopause. Our <a href="/hormone-quiz">tracker</a> does the counting.'],['Read the method','<em>The Hormone Blueprint</em>, chapter on the transition.','/book']]});
+        steps:[['Name it, then treat it','This stage is the most responsive to symptom relief \u2014 lifestyle, non-hormonal options or HRT.'],['Keep tracking your cycle','Note each period; reaching 12 months from your last one confirms menopause. Our <a href="/hormone-quiz">tracker</a> does the counting.'],['Read the method','<em>The Hormone Blueprint</em>, chapter on the transition.','/hormone-blueprint']]});
     }
     if(a.cycle==='var7'){
       if(a.age&&a.age<40) flags.push(['Worth a check under 40','Cycle changes with menopausal symptoms before 40 deserve a medical review.']);
       return R({key:'early',tl:1,stage:'Early perimenopause',sub:'Your cycle length has started to shift by a week or more \u2014 the first formal marker of the transition.',
         mean:'A persistent change of 7+ days in cycle length marks <b>early perimenopause</b>. Your ovaries are becoming less predictable, and symptoms often begin around now \u2014 even while periods still come most months.',
         time:'The whole transition typically runs <b>4\u20137 years</b>, beginning at a median age of <b>47</b>. Starting earlier than that tends to mean a longer, more symptomatic transition \u2014 so noticing it now is genuinely useful.',
-        steps:[['Start a simple cycle log','Tracking length and symptoms makes the pattern clear \u2014 our <a href="/hormone-quiz">daily tracker</a> is built for this.'],['Treat symptoms early','You don\u2019t need to wait until periods stop \u2014 relief is available now.'],['Learn what\u2019s ahead','<em>The Hormone Blueprint</em> maps the whole transition.','/book']]});
+        steps:[['Start a simple cycle log','Tracking length and symptoms makes the pattern clear \u2014 our <a href="/hormone-quiz">daily tracker</a> is built for this.'],['Treat symptoms early','You don\u2019t need to wait until periods stop \u2014 relief is available now.'],['Learn what\u2019s ahead','<em>The Hormone Blueprint</em> maps the whole transition.','/hormone-blueprint']]});
     }
     if(a.age&&a.age>=48&&vaso) flags.push(['Symptoms despite regular cycles?','Perimenopause can start with symptoms before your cycle changes. If they persist, it\u2019s worth a conversation with your clinician.']);
     return R({key:'pre',tl:0,stage:'Premenopause',sub:'Your cycles are still regular, so you\u2019re not yet in the transition \u2014 though symptoms can still be worth addressing.',
       mean:'Regular, predictable cycles mean you\u2019re <b>premenopausal</b> \u2014 the transition hasn\u2019t formally begun. If you\u2019re having symptoms, they may have another cause worth exploring, or you may be right at the doorway of change.',
       time:'For most women the transition begins in the <b>mid-40s</b> (median 47) and lasts <b>4\u20137 years</b>, with the final period around <b>51</b>. Knowing your baseline now makes the first changes easy to spot.',
-      steps:[['Note your baseline','Knowing your normal cycle now makes it easy to spot the first changes later. Start with our <a href="/hormone-quiz">daily tracker</a>.'],['Check other causes','Thyroid, stress, iron and sleep are worth reviewing if symptoms bother you.'],['Get ahead of it','<em>The Hormone Blueprint</em> helps you prepare.','/book']]});
+      steps:[['Note your baseline','Knowing your normal cycle now makes it easy to spot the first changes later. Start with our <a href="/hormone-quiz">daily tracker</a>.'],['Check other causes','Thyroid, stress, iron and sleep are worth reviewing if symptoms bother you.'],['Get ahead of it','<em>The Hormone Blueprint</em> helps you prepare.','/hormone-blueprint']]});
   }
 
   function bar(dn,score,max){
