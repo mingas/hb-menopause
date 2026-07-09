@@ -346,4 +346,4 @@
 })();
 
 /* Deliver the stage guide PDF when the Menopause Tool email form is submitted */
-(function(){var f=document.querySelector('#menopause-email form');if(f){f.addEventListener('submit',function(){window.open('https://cdn.jsdelivr.net/gh/mingas/hb-menopause@main/Menopause-Stage-Guide-and-Symptom-Tracker.pdf','_blank');});}})();
+(function(){var f=document.querySelector('#menopause-email form')||document.querySelector('#ranges-email form');if(f){f.addEventListener('submit',function(){window.open('https://cdn.jsdelivr.net/gh/mingas/hb-menopause@main/Menopause-Stage-Guide-and-Symptom-Tracker.pdf','_blank');});}})();
