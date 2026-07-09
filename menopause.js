@@ -347,3 +347,17 @@
 
 /* Deliver the stage guide PDF when the Menopause Tool email form is submitted */
 (function(){var f=document.querySelector('#menopause-email form')||document.querySelector('#ranges-email form');if(f){f.addEventListener('submit',function(){window.open('https://cdn.jsdelivr.net/gh/mingas/hb-menopause@main/Menopause-Stage-Guide-and-Symptom-Tracker.pdf','_blank');});}})();
+/* Re-label the inherited email section for the women's tool */
+(function(){
+  function fix(){
+    var sec=document.getElementById('ranges-email')||document.getElementById('menopause-email');
+    if(!sec)return;
+    var h=sec.querySelector('h1,h2,h3');
+    if(h)h.textContent='Email me my stage guide + a symptom tracker';
+    var em=sec.querySelector('input[type=email],input.w-input');
+    if(em&&!em.getAttribute('placeholder'))em.setAttribute('placeholder','you@email.com');
+    var b=sec.querySelector('input[type=submit]');
+    if(b)b.value='Send it';
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fix);else fix();
+})();
