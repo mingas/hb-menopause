@@ -128,6 +128,7 @@
       <div class="kicker">For reference</div>
       <h2>Typical hormone levels by life stage</h2>
       <p>Useful background — but note the caveat below. These are not a way to self-diagnose your stage.</p>
+      <div class="tbl-wrap">
       <table>
         <thead><tr><th>Life stage</th><th>Oestradiol (E2)</th><th>FSH</th><th>What's happening</th></tr></thead>
         <tbody>
@@ -138,6 +139,7 @@
           <tr><td>Testosterone</td><td class="num">gradual decline</td><td class="num">—</td><td>Falls slowly with age rather than at menopause; may even rise slightly afterwards.<sup class="cit"><a href="#sources">3</a></sup></td></tr>
         </tbody>
       </table>
+      </div>
       <div class="tbl-note">Ranges vary by laboratory, assay and cycle day. During perimenopause especially, a single reading is an unreliable guide — which is why your stage is based on cycle pattern and symptoms, not a number.<sup class="cit"><a href="#sources">2,3</a></sup></div>
     </section>
 
