@@ -54,7 +54,6 @@
           <label class="opt"><input type="radio" name="cycle" value="reg"><span class="dot"></span><span class="ot">Still regular and predictable</span></label>
           <label class="opt"><input type="radio" name="cycle" value="var7"><span class="dot"></span><span><span class="ot">Length varies by a week or more</span><span class="os">Arriving noticeably earlier or later than usual</span></span></label>
           <label class="opt"><input type="radio" name="cycle" value="skip60"><span class="dot"></span><span><span class="ot">I'm skipping periods</span><span class="os">Gaps of two months or more</span></span></label>
-          <label class="opt"><input type="radio" name="cycle" value="na"><span class="dot"></span><span class="ot">Not applicable — no periods now</span></label>
         </div>
       </div>
 
@@ -242,13 +241,14 @@
   back.addEventListener('click',function(){ if(cur>0){cur--;show();} });
 
   function domScore(d){var t=0;SYM.forEach(function(s){if(s.d===d)t+=state.sym[s.id];});return t;}
-  function somHigh(){return domScore('som')>=4;}
+  function vasoHigh(){return (state.sym.hot||0)+(state.sym.sweat||0)>=2;}
 
   // ---- STRAW+10 staging (unchanged, verified logic) ----
   function classify(){
-    var a=state, flags=[], vaso=somHigh();
+    var a=state, flags=[], vaso=vasoHigh();
     function R(o){o.flags=flags;return o;}
     if(a.horm==='hrt'){
+      if(a.last==='12plus') flags.push(['Any unexpected bleeding? See a doctor','Some bleeding can be expected on HRT, but bleeding that is new, heavy, or outside your usual pattern should always be checked promptly.']);
       return R({key:'hrt',tl:-1,stage:'On HRT \u2014 read by symptoms',sub:'Menopause hormone therapy changes your bleeding pattern, so cycle-based staging doesn\u2019t apply. What matters now is how well your symptoms are controlled.',
         mean:'Because you\u2019re taking HRT, the usual cycle milestones can\u2019t place you on the map \u2014 and that\u2019s expected. The goal of therapy is symptom control, guided by how you feel rather than by a test. Your snapshot below shows where things stand.',
         time:'On HRT, what matters is symptom control over time \u2014 not where you sit on the map. Most women review their dose with a clinician within the first <b>3\u20136 months</b>, then annually.',
@@ -270,7 +270,7 @@
     }
     if(a.last==='12plus'){
       if(a.age&&a.age<40) flags.push(['See a doctor \u2014 menopause before 40','Reaching menopause under 40 is called premature ovarian insufficiency. It should be confirmed and managed by a doctor to protect long-term bone and heart health.']);
-      else if(a.age&&a.age<45) flags.push(['Early menopause \u2014 worth a review','Menopause between 40 and 45 is earlier than average and worth discussing with a clinician.']);
+      else if(a.age&&a.age<45) flags.push(['Early menopause \u2014 worth a review','Menopause between 40 and 44 is called early menopause. It is worth discussing with a clinician, including support for bone and heart health.']);
       flags.push(['Any new bleeding? See a doctor','Once you\u2019ve gone 12 months without a period, <b>any</b> bleeding is not normal and should be checked promptly.']);
       return R({key:'post',tl:3,stage:'Postmenopause',sub:'Twelve or more months without a period means you\u2019ve reached menopause. Your body has settled into a new, lower-hormone baseline.',
         mean:'You\u2019ve passed the menopause milestone. Oestrogen now stays consistently low. Many symptoms ease over the first few years, but low oestrogen has longer-term effects on <b>bone and heart health</b> worth protecting.',
@@ -291,7 +291,9 @@
         time:'The whole transition typically runs <b>4\u20137 years</b>, beginning at a median age of <b>47</b>. Starting earlier than that tends to mean a longer, more symptomatic transition \u2014 so noticing it now is genuinely useful.',
         steps:[['Start a simple cycle log','Tracking length and symptoms makes the pattern clear \u2014 our <a href="/hormone-quiz">daily tracker</a> is built for this.'],['Treat symptoms early','You don\u2019t need to wait until periods stop \u2014 relief is available now.'],['Learn what\u2019s ahead','<em>The Hormone Blueprint</em> maps the whole transition.','/hormone-blueprint']]});
     }
-    if(a.age&&a.age>=48&&vaso) flags.push(['Symptoms despite regular cycles?','Perimenopause can start with symptoms before your cycle changes. If they persist, it\u2019s worth a conversation with your clinician.']);
+    if(a.age&&a.age<40&&vaso) flags.push(['Symptoms under 40 \u2014 see a doctor','Menopausal-type symptoms before 40 need a medical review to rule out premature ovarian insufficiency and other causes.']);
+    else if(a.age&&a.age<45&&vaso) flags.push(['Symptoms before 45 \u2014 worth discussing','Menopausal symptoms before 45 are worth reviewing with a clinician. Unlike at 45 and over, blood tests can add useful information in this age group.']);
+    else if(a.age&&a.age>=45&&vaso) flags.push(['Symptoms despite regular cycles?','Perimenopause can start with symptoms before your cycle changes. From 45, guidelines identify perimenopause from recently started vasomotor symptoms, so if they persist it is worth a conversation with your clinician.']);
     return R({key:'pre',tl:0,stage:'Premenopause',sub:'Your cycles are still regular, so you\u2019re not yet in the transition \u2014 though symptoms can still be worth addressing.',
       mean:'Regular, predictable cycles mean you\u2019re <b>premenopausal</b> \u2014 the transition hasn\u2019t formally begun. If you\u2019re having symptoms, they may have another cause worth exploring, or you may be right at the doorway of change.',
       time:'For most women the transition begins in the <b>mid-40s</b> (median 47) and lasts <b>4\u20137 years</b>, with the final period around <b>51</b>. Knowing your baseline now makes the first changes easy to spot.',
@@ -300,7 +302,7 @@
 
   function bar(dn,score,max){
     var pct=Math.round(score/max*100);
-    var band=pct>=60?'Severe':pct>=35?'Moderate':pct>=12?'Mild':'Minimal';
+    var band=pct>=83?'Severe':pct>=50?'Moderate':pct>=17?'Mild':'Minimal';
     return '<div class="dom"><div class="dom-top"><span class="dom-name">'+dn+'</span><span class="dom-val">'+band+'</span></div><div class="bar"><i style="width:'+Math.max(pct,3)+'%"></i></div></div>';
   }
   function render(r){
