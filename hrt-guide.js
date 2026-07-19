@@ -393,16 +393,53 @@
   if (typeof window !== 'undefined') window.hbHrt = { rebuild: buildLogic, _render: renderResult };
 })();
 
-/* Deliver the HRT conversation-guide PDF when the email form is submitted */
+/* Deliver the HRT conversation-guide PDF when the email form is submitted.
+   Uses a real click gesture (not the AJAX submit event) so the browser does not
+   block the new tab, and always shows a visible download link on success as a fallback. */
 (function () {
-  var f = document.querySelector('#hrt-email form')
-       || document.querySelector('#menopause-email form')
-       || document.querySelector('#ranges-email form');
-  if (f) {
-    f.addEventListener('submit', function () {
-      window.open('https://cdn.jsdelivr.net/gh/mingas/hb-menopause@main/HRT-Conversation-Guide.pdf', '_blank');
-    });
+  var PDF = 'https://cdn.jsdelivr.net/gh/mingas/hb-menopause@e38c8a7c129cb4b8e1ef075640e15101f2aa5d5a/HRT-Conversation-Guide.pdf';
+
+  function wire() {
+    var sec = document.getElementById('hrt-email')
+           || document.getElementById('menopause-email')
+           || document.getElementById('ranges-email');
+    if (!sec || sec.getAttribute('data-hrt-pdf') === '1') return;
+    sec.setAttribute('data-hrt-pdf', '1');
+
+    var form = sec.querySelector('form');
+    var btn  = sec.querySelector('input[type=submit], button[type=submit], .w-button');
+    var email = sec.querySelector('input[type=email], input.w-input');
+
+    // 1) Open the PDF on the button's own click — a genuine user gesture, so it is not blocked.
+    if (btn) {
+      btn.addEventListener('click', function () {
+        // only hand out the guide once an email has actually been entered
+        if (email && !String(email.value || '').trim()) return;
+        var w = window.open(PDF, '_blank');
+        // if the popup was blocked, fall back to a same-tab navigation shortly after
+        if (!w) { setTimeout(function () { try { window.location.href = PDF; } catch (e) {} }, 400); }
+      });
+    }
+
+    // 2) When Webflow shows its success state, reveal a visible download link too.
+    var done = sec.querySelector('.w-form-done');
+    if (done) {
+      var reveal = function () {
+        if (done.querySelector('.hrt-dl')) return;
+        done.innerHTML = 'Check your inbox. If your guide did not open, '
+          + '<a class="hrt-dl" href="' + PDF + '" target="_blank" rel="noopener" '
+          + 'style="color:#7d6317;font-weight:700;text-decoration:underline;">download it here</a>.';
+      };
+      // Webflow toggles the done block's display; watch for it becoming visible.
+      if (window.MutationObserver) {
+        new MutationObserver(reveal).observe(done, { attributes: true, attributeFilter: ['style'] });
+      }
+      if (form) form.addEventListener('submit', function () { setTimeout(reveal, 300); });
+    }
   }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wire);
+  else wire();
 })();
 
 /* Re-label the inherited email section for the HRT tool */
